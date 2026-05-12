@@ -87,6 +87,33 @@
 	Array.prototype.UPDATE = function(){}
 	
 	Array.prototype.DELETE = function(){}
+
+//display services/////////////////////////////////////////////////////////////////////////
+	Object.prototype.stretch = function( indchain = "", stretchedObj = {} )
+	{
+		for( let [ind, item] of Object.entries(this))
+		{
+			let indch = indchain == "" ? ind : indchain+"."+ind;
+//		console.log([ indch, item, typeof item]);
+			if( typeof item == 'object')
+			{
+			 stretchedObj = item.stretch( indch, stretchedObj );
+			}
+			else { stretchedObj[indch] = item; }
+//		console.log(stretchedObj);
+		}
+		return stretchedObj;
+	}
+	// convenience service
+	function ObjStretchArr(ObjArr){
+		let stretchedObjArr = [];
+		for(let o=0; o<ObjArr.length; o++)
+		{
+			// console.log(ObjArr[o].stretch());
+			stretchedObjArr.push( ObjArr[o].stretch() );
+		}
+		return stretchedObjArr;
+	}
 	
 	// HTML
 		
