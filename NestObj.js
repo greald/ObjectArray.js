@@ -42,7 +42,7 @@
 			for(let pr=0; pr<stretchedPropertiesArr.length; pr++)
 			{
 				stretchedObjInstance = stretchedObjInstance[ stretchedPropertiesArr[pr] ];
-				console.log(stretchedObjInstance);
+//				console.log(stretchedObjInstance);
 			}
 			return stretchedObjInstance;
 		}
