@@ -34,4 +34,17 @@
 			console.log(this.stretchedColmnNames);
 			return sCNames;
 		}
+		
+		columnNameInstance(stretchedColmnNames = "")
+		{
+			let stretchedPropertiesArr = stretchedColmnNames.split('.');
+			let stretchedObjInstance = this;
+			for(let pr=0; pr<stretchedPropertiesArr.length; pr++)
+			{
+				stretchedObjInstance = stretchedObjInstance[ stretchedPropertiesArr[pr] ];
+				console.log(stretchedObjInstance);
+			}
+			return stretchedObjInstance;
+		}
+
 }
