@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>kings</title>
+		
+		<style>
+			th, td {
+				border: 1px solid black;
+			}
+		</style>
+		
+		<script src="file://C:/xampp8/htdocs/experimental/ObjArr.js"></script>
+		<script src="file://C:/xampp8/htdocs/experimental/kings.ex.js"></script>
+		
+	</head>
+	<body>
+		<div id="container"></div>
+		<script>
+			const myArrayOfObjects = new ObjArr(royals); console.log(myArrayOfObjects);
+			
+			const tabel = myArrayOfObjects.HTML_TABLE();
+//	  	console.log(tabel);
+			document.getElementById('container').innerHTML = tabel;
+		</script>
+		<div id="query"></div>
+		<a name="selection"></a><div id="selection"></div>
+		<script>
+		/*			
+			function keuren(Arr)
+			{
+				const propsElm  = document.getElementById('props'); 
+				const cmpsElm   = document.getElementById('cmps');
+				 
+				let zoekslag = 
+				propsElm.options[propsElm.selectedIndex].value+' '+
+				cmpsElm.options[cmpsElm.selectedIndex].value+' '+
+				document.getElementById('needle').value;
+				console.log(zoekslag);
+				
+				const SAK = Arr.SELECT_keys(zoekslag); console.log(SAK);
+				const SAO = Arr.SELECT_rows(zoekslag); console.log(SAO);
+				
+				document.getElementById('selection').innerHTML = 
+				"<h2>"+SAO.length+"/"+Arr.length+
+				" Selected where &#34;"+zoekslag+"&#34;</h2>"+
+				SAO.HTML_TABLE();
+			}*/
+			
+			// end build up of page
+		</script>
+		
+	</body>
+	<script>
+		// testing page
+		
+		myArrayOfObjects.HTML_query_block(document.getElementById('query'), 0, 'selection');
+		
+	</script>
+	-- EINDE --
+</html>
