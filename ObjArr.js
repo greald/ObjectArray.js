@@ -203,6 +203,21 @@ class Query
 	// selected by Where methods
 	// fulfilling Condition conditions
 	
+	static fieldfilter(objArr, condition)
+	{
+		// source https://share.google/aimode/L02NE1h718rYcRWem
+	  if (!(objArr instanceof ObjArr && condition instanceof Condition))
+	  { 
+	      console.log('Error: mistype'); 
+	      return [];
+	  }
+	  return Array.from(objArr.keys()).filter((index) =>
+		  {
+	      return condition.test(objArr[index]);
+		  }
+	  );
+	}
+
 	static fieldselect(objArr, condition)
 	{
 		// @param ObjArr instanceof ObjArr
@@ -247,7 +262,8 @@ class Query
 	
 	static sif(objarr, caseofkey, condition)
 	{ // short statement for elements to chaine
-		return [caseofkey, Query.fieldselect(objarr, (new Condition(condition)))];
+	    //return [caseofkey, Query.fieldselect(objarr, (new Condition(condition)))];
+		return [caseofkey, Query.fieldfilter(objarr, (new Condition(condition)))];
 	}
 }
 
@@ -277,7 +293,8 @@ class ObjArr extends Array
   }
 	
 	#whereOnly(columnChain, comparator = null, criterion = null){
-		return Query.fieldselect(this, (new Condition(columnChain, comparator, criterion)));
+	    //return Query.fieldselect(this, (new Condition(columnChain, comparator, criterion)));
+		return Query.fieldfilter(this, (new Condition(columnChain, comparator, criterion)));
 	}
 	
 	#whereAll(conditions = [...[connector='',condition='']]){
