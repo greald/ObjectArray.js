@@ -416,11 +416,13 @@ class ObjArr extends Array
 
 		for(let qn = 0; qn<qnr; qn++)
 		{
-			document.getElementById('supplement'+qn).disabled = "disabled";
-			document.getElementById('execute'+qn).disabled = "disabled";
-			
-		//if(document.getElementById('supplement'+qn).disabled == "disabled"){document.getElementById('supplement'+qn).remove();}
-		//if(document.getElementById('execute'+qn).disabled == "disabled"){document.getElementById('execute'+qn).remove();}
+			if(document.getElementById('supplement'+qn) == null){;}else{
+				document.getElementById('supplement'+qn).disabled = "disabled";
+				document.getElementById('execute'+qn).disabled = "disabled";
+				
+				if(document.getElementById('supplement'+qn).disabled){document.getElementById('supplement'+qn).remove();}
+				if(document.getElementById('execute'+qn).disabled){document.getElementById('execute'+qn).remove();}
+			}
 		} 
 	}
 }
